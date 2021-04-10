@@ -1,0 +1,37 @@
+<h1>{{personaje.0.0.name}}</h1>
+<form action="/breakingbad/buscador/" method="post">
+  {% csrf_token %}
+  <input type="text" id="buscador" name="buscador" placeholder="Buscar personaje...">
+  <i class="icon icon-search"></i>
+  <button type="submit" class="boton btn-success">Buscar</button>
+</form>
+<img src='{{personaje.0.0.img}}' width=15% height=auto>
+<li>Ocupación:</li>
+<ol>
+  {% for occ in personaje.0.0.occupation %}
+    <li>{{occ}}</li>
+  {% endfor %}
+</ol>
+<li>Status: {{personaje.0.0.status}}</li>
+<li>Nickname: {{personaje.0.0.nickname}}</li>
+<li>Apariciones Breaking Bad:</li>
+<ol>
+  {% for appa in personaje.0.0.appearance %}
+    <li><a href="/breakingbad/breaking_bad/{{appa}}">Temporada {{appa}}</a></li>
+  {% endfor %}
+</ol>
+
+<li>Portrayed: {{personaje.0.0.portrayed}}</li>
+<li>Category: {{personaje.0.0.category}}</li>
+<li>Apariciones Better Call Saul:</li>
+<ol>
+  {% for appa in personaje.0.0.better_call_saul_appearance %}
+    <li><a href="/breakingbad/better_call_saul/{{appa}}">Temporada {{appa}}</a></li>
+  {% endfor %}
+</ol>
+<li>Quotes:</li>
+<ol>
+  {% for value in personaje.1 %}
+    <li>{{value.quote}}</li>
+  {% endfor %}
+</ol>
