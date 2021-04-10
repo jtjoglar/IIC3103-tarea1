@@ -1,0 +1,12 @@
+<h1>Breaking Bad</h1>
+<form action="/breakingbad/buscador/" method="post">
+  {% csrf_token %}
+  <input type="text" id="buscador" name="buscador" placeholder="Buscar personaje...">
+  <i class="icon icon-search"></i>
+  <button type="submit" class="boton btn-success">Buscar</button>
+</form>
+<h2>Temporada {{diccionario_season.1.season}}</h2>
+{% for episode_number, episode in diccionario_season.items %}
+  <li><a href="/breakingbad/breaking_bad/{{episode.season}}/{{episode_number}}">
+    Episodio {{episode_number}}: {{episode.title}}</a></li>
+{% endfor %}

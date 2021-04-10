@@ -1,0 +1,18 @@
+<h1>Breaking Bad</h1>
+<form action="/breakingbad/buscador/" method="post">
+  {% csrf_token %}
+  <input type="text" id="buscador" name="buscador" placeholder="Buscar personaje...">
+  <i class="icon icon-search"></i>
+  <button type="submit" class="boton btn-success">Buscar</button>
+</form>
+<h2>Temporada {{diccionario_ep.season}}</h2>
+<li>Título: "{{diccionario_ep.title}}"</li>
+<li>Air Date: {{diccionario_ep.air_date}}</li>
+<li>N° de episodio: {{diccionario_ep.episode}}</li>
+<li>Personajes</li>
+<ol>
+{% for personaje in diccionario_ep.characters %}
+  <li><a href="/breakingbad/{{personaje}}">{{personaje}}</a></li>
+{% endfor %}
+</ol>
+<li>Serie: {{diccionario_ep.series}}</li>

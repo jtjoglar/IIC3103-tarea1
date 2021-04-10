@@ -1,0 +1,14 @@
+<h1>Tarea 1 - Consumir API</h1>
+<form action="/breakingbad/buscador/" method="post">
+  {% csrf_token %}
+  <input type="text" id="buscador" name="buscador" placeholder="Buscar personaje...">
+  <i class="icon icon-search"></i>
+  <button type="submit" class="boton btn-success">Buscar</button>
+</form>
+{% for s in series %}
+  {% if s == 'Breaking Bad' %}
+    <h2><li><a href="/breakingbad/breaking_bad">{{s}}</a></li></h2>
+  {% elif s == 'Better Call Saul' %}
+    <h2><li><a href="/breakingbad/better_call_saul">{{s}}</a></li></h2>
+  {% endif %}
+{% endfor %}

@@ -1,0 +1,4 @@
+<h1>Personajes encontrados</h1>
+{% for personaje in personaje_b %}
+  <h3><li><a href="/breakingbad/{{personaje.name}}">{{personaje.name}}</a></li></h3>
+{% endfor %}
