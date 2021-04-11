@@ -5,8 +5,14 @@ import requests
 url_episodes = 'https://tarea-1-breaking-bad.herokuapp.com/api/episodes'
 response = requests.get(url_episodes)
 list_episodes = response.json()
-dict_bb = {'1': {}, '2': {}, '3': {}, '4': {}, '5': {}}
-dict_bcs = {'1': {}, '2': {}, '3': {}, '4': {}}
+dict_bb = dict()
+dict_bcs = dict()
+
+for ep_actual in list_episodes:
+    if ep_actual['series'] == 'Breaking Bad':
+        dict_bb[ep_actual['season']] = {}
+    else:
+        dict_bcs[ep_actual['season']] = {}
 
 for ep_actual in list_episodes:
     if ep_actual['series'] == 'Breaking Bad':
